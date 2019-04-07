@@ -78,3 +78,9 @@
   - type属性：事件类型，如click事件等
   - stopPropagation方法：阻止事件冒泡
   - preventDefault方法：阻止元素默认行为，如阻止a元素在点击时的默认跳转
+
+3. IE中的事件对象
+   - type 属性：获取事件类型
+   - srcElement属性：获取事件目标
+   - cancelBubble属性：阻止事件冒泡
+   - returnValue属性：阻止事件的默认行为
