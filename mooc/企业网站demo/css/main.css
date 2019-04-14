@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+a:link, a:visited {
+    color: #8E8E8E;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #C00;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+input {
+    border: none;
+}
+/* top bar*/
+.topBar {
+    width: 100%;
+    background: url(../images/top_bg.jpg) repeat-x;
+}
+
+.topContent {
+    width: 1000px;
+    height: 27px;
+    margin: 0 auto;
+}
+
+.topContent ul{
+    float: right;
+}
+
+.topContent ul li{
+    float: left;
+    margin-right: 10px;
+    padding-left: 10px;
+    line-height: 27px;
+    background: url(../images/arrow.jpg) no-repeat left center;
+}
+/* main content*/
+.mainContent {
+    width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+}
+/* logo bar */
+.logoBar {
+    height: 100px;
+    line-height: 100px;
+}
+
+.logoBar img {
+    margin: 10px 0 0 10px;
+}
+
+.contact {
+    float: right;
+    padding-left: 40px;
+    margin-right: 10px;
+    color: #8E8E8E;
+    background: url(../images/tel.jpg) no-repeat left center;
+}
+
+.contact span {
+    font-size: 22px;
+	color: #C00;
+    font-weight: bold;
+}
+/* nav bar */
+.navBar {
+    height: 40px;
+    background: url("../images/nav_left.jpg") no-repeat left center, 
+        url(../images/nav_right.jpg) no-repeat right center;
+}
+
+.navBar ul {
+    margin: 0 9px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../images/nav_bg.jpg) repeat-x;
+}
+
+.navBar ul li {
+    float: left;
+    margin-left: 40px;
+}
+
+.navBar ul li a {
+    display: block;
+    float: left;
+	font-size: 16px;
+    color: #fff;
+}
+
+.navBar ul li a:hover, .navBar ul li a:active{
+    color: #FF0;
+}
+.navBar ul input {
+    float: right;
+    width: 270px;
+    height: 30px;
+    margin: 1px 20px 3px 0;
+    padding-right: 25px;
+    border: 1px solid #FFF;
+    background: url(../images/search.jpg) no-repeat right center, #fff;
+}
+
+/* info */
+.info {
+    height: 250px;
+    margin-top: 10px;
+}
+
+.newsCenter, .courseCenter , .sideBar{
+    float: left;
+}
+
+.newsCenter {
+    width: 340px;
+    height: 250px;
+    border: #e8e8e8 solid 1px;
+}
+
+.courseCenter {
+    width: 410px;
+    height: 250px;
+    margin:0 7px;
+    border: #e8e8e8 solid 1px;
+}
+.sideBar{
+    width: 230px;
+    height: 250px;  
+}
+
+
+/* title */
+.title  {
+    height: 35px;
+    border-bottom: #e8e8e8 solid 2px;
+    line-height: 35px;
+}
+
+.title h3{
+    float: left;
+    padding-left: 10px;
+    color: #786F66;
+}
+
+.title a{
+    float: right;
+    margin-right: 10px;
+    font-size: 10px;
+    color: #999;
+}
+/* show case */
+ .showCase {
+    float: left;
+    line-height: 1.5em;
+}
+ .showCase div, .showCase img{
+     float: left;
+     margin: 5px;
+ }
+ .showCase h2, .showCase a{
+     color: #C00;
+ }
+/* news list */
+ .new_list{
+     clear: both;
+     margin: 5px;
+ }
+
+ .new_list li{
+    height: 25px;
+    padding-left: 10px;
+    border-bottom: #CCC dotted 1px;
+    line-height: 25px;
+    background: url(../images/list.jpg) no-repeat left center;
+}
+
+.new_list li span{
+    float: right;
+    color: #999;
+}
+
+.new_list li a:link, .new_list li a:visited{
+    color: #000;
+}
+
+.new_list li a:hover, .new_list li a:active{
+    color: #f00;
+}
+/* course center */
+
+.courseCenter .showCase div{
+    width: 230px;
+}
+
+.productType{
+    clear: both;
+}
+.courseCenter ul{
+    height: 37px;
+    padding-top: 20px;
+    line-height: 37px;
+    background: url(../images/product_type_bg.jpg) no-repeat bottom;
+}
+
+.courseCenter ul li {
+    float: left;
+    margin-left: 38px;
+} 
+/* mediaFocus */
+.mediaFocus {
+    width: 230px;
+    height: 185px;
+    border: #e8e8e8 solid 1px;
+}
+
+.sideBar img{
+    width: 230px;
+    margin-top: 5px;
+    border: #e8e8e8 solid 1px;
+}
+
+.mediaFocus p{
+    padding: 5px 5px 0 5px;
+}
+
+.copyRight {
+    clear: both;
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    background: #e8e8e8;
+}
+.copyRightContent{
+    width: 1000px;
+    height: 180px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.copyRightContent dl{
+    float: right;
+	width: 200px;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: #999;
+    background: url(../images/line.png) no-repeat right center;
+}
