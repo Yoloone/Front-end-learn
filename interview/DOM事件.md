@@ -1,10 +1,21 @@
-##JavaScript学习-事件
+## DOM事件
+
 #### 事件流
 1. 事件：文档或浏览器窗口中发生的特定的交互瞬间。JavaScript与HTML交互都是通过事件来实现的。
-2. 事件流：页面中接收事件的顺序
-3. 事件流分类
-   - 事件冒泡流（IE）：最开始由最具体的元素（嵌套最深）接收事件，逐级向上传播给最不具体的节点（最后到达document）
-   - 事件捕获流（Netscape）：与冒泡流相反，最开始由最不具体的节点接收事件，最具体的节点最后接收到事件
+
+2. 事件流：页面交互中接收事件的顺序
+
+3. 事件模型
+   - 事件冒泡模型（IE）：最开始由最具体的元素（嵌套最深）接收事件，逐级向上传播给最不具体的节点（最后到达document）
+   - 事件捕获模型（Netscape）：与冒泡流相反，最开始由最不具体的节点接收事件，最具体的节点最后接收到事件
+
+4. 一个完整的事件流：
+
+   事件捕获阶段--》目标阶段 --》事件冒泡阶段
+
+5. DOM事件捕获的具体流程
+
+   window -> document -> html ->body ->...->目标元素
 ####事件处理程序
 分为三种方式，DOM0和DOM2级事件处理程序可以添加多个事件，事件按照顺序进行
 1. HTML事件处理程序
@@ -75,12 +86,24 @@
 2. DOM中的事件对象
 - 常用属性和方法
   - target属性：触发事件的元素
+  - currentTarget属性: 当前绑定事件的对象
   - type属性：事件类型，如click事件等
   - stopPropagation方法：阻止事件冒泡
   - preventDefault方法：阻止元素默认行为，如阻止a元素在点击时的默认跳转
+  - stopImmediatePropation属性
 
 3. IE中的事件对象
    - type 属性：获取事件类型
    - srcElement属性：获取事件目标
    - cancelBubble属性：阻止事件冒泡
    - returnValue属性：阻止事件的默认行为
+
+#### 自定义事件
+
+```javascript
+var event = new Event('custome'); //自定义事件 CustomEvent(事件名，参数对象)
+ele.addEventListener('custome', function(){
+    console.log('custome');
+});
+ele.dispatchEvent(event); // 触发事件
+```

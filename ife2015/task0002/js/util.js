@@ -273,7 +273,7 @@ function $(selector) {
 
 // 给一个element绑定一个针对event事件的响应，响应函数为listener
 function addEvent(element, event, listener) {
-    if(element["on" + event]){
+    if (element["on" + event]) {
         element["on" + event] = null;
     }
     if (element.addEventListener) {
@@ -313,21 +313,21 @@ function addEnterEvent(element, listener) {
 }
 
 
-$.on = function(selector, event, listener) {
+$.on = function (selector, event, listener) {
     addEvent($(selector), event, listener);
 }
 
-$.click = function(selector, listener) {
+$.click = function (selector, listener) {
     addEvent($(selector), "click", listener);
 }
 
-$.un = function(selector, event, listener) {
+$.un = function (selector, event, listener) {
     removeEvent($(selector), event, listener);
 }
 
-$.delegate = function(selector, tag, event, listener) {
+$.delegate = function (selector, tag, event, listener) {
     var element = $(selector);
-    each(element.getElementsByTagName(tag), function(){
+    each(element.getElementsByTagName(tag), function () {
         addEvent(element, event, listener);
     });
 }
@@ -368,3 +368,78 @@ $.delegate = function(selector, tag, event, listener) {
 //     }
 // }
 
+var myAjax = function (option) {
+    var opt = {
+        url: '',
+        method: 'get',
+        data: {},
+        success: function () { },
+        error: function () { },
+    };
+    for (var i in option) {
+        if (option.hasOwnProperty(i)) {
+            opt[i] = option[i];
+        }
+    }
+    if (opt.url) {
+        var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveObject('Microsoft.XMLHTTP');
+        // 响应处理
+        xhr.onload = function (event) {
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) { // 304代表请求的资源并未被修改可以使用浏览器中缓存的版本
+                if (typeof opt.success === 'function') {
+                    opt.success.call(xhr, JSON.parse(xhr.responseText));
+                }
+            } else {
+                if (typeof opt.error === 'function') {
+                    opt.error.call(xhr, xhr.responseText);
+                }
+            }
+        }
+
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState === 4) {
+        //         if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+        //             if (typeof opt.success === 'function') {
+        //                 opt.success.call(xhr, JSON.parse(xhr.responseText));
+        //             }
+        //         } else {
+        //             if (typeof opt.error === 'function') {
+        //                 opt.error.call(xhr, xhr.responseText);
+        //             }
+        //         }
+        //     }
+        // }
+
+        // 发送请求
+        var dataArr = [];
+        for (var i in opt.data) {
+            dataArr.push(encodeURIComponent(i) + '=' + encodeURIComponent(opt.data[i]));
+        }
+        var method = opt.method.toLowerCase();
+        var url = opt.url;
+        if (opt.method === 'get') {
+            url = dataArr.length > 0 ? url + '?' + dataArr.join('&') : url;
+            xhr.open(method, url, true);
+            xhr.send(null);
+        } else if (opt.method == 'post') {
+            xhr.open(method, url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send(dataArr.join('&')); //post数据的格式与查询字符串格式相同
+            // var formData = new FormData();
+            // for (var i in opt.data) {
+            //     formData.append(i, opt.data[i]);
+            // }
+            // xhr.send(formData);
+        }
+    }
+}
+var option = {
+    url: 'https://www.apiopen.top/femaleNameApi',
+    data: {
+        page: 2
+    },
+    success: function (res) {
+        console.log(res);
+    }
+}
+myAjax(option);

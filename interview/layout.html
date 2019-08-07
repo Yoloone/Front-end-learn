@@ -1,0 +1,132 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css布局</title>
+    <style media="screen">
+        html * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .layout {
+            margin-bottom: 10px;
+        }
+
+        .left-center-right div {
+            height: 100px;
+        }
+
+        .left {
+            width: 300px;
+            background: red;
+        }
+
+        .center {
+            background: green;
+        }
+
+        .right {
+            width: 300px;
+            background: blue;
+        }
+
+        .layout.float {
+            height: 100px;
+        }
+
+        .float .left {
+            float: left;
+        }
+
+        .float .right {
+            float: right;
+        }
+
+        .absolute .left-center-right {
+            height: 100px;
+        }
+
+        .absolute .left {
+            position: absolute;
+            left: 0;
+        }
+
+        .absolute .right {
+            position: absolute;
+            right: 0;
+        }
+
+        .absolute .center {
+            position: absolute;
+            left: 300px;
+            right: 300px;
+        }
+
+        .flex .left-center-right {
+            display: flex;
+        }
+
+        .flex .center {
+            flex: 1;
+        }
+
+        .table .left-center-right {
+            display: table;
+            width: 100%;
+        }
+
+        .table div {
+            display: table-cell;
+        }
+
+        .grid .left-center-right{
+            display: grid;
+            grid-template-columns: 300px auto 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="layout float">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="center">float 布局</div>
+        </article>
+    </section>
+    <section class="layout absolute">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="center">absolute 布局</div>
+        </article>
+    </section>
+    <section class="layout flex">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">flex 布局</div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+    <section class="layout table">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">table 布局</div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+    <section class="layout grid">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">grid 布局</div>
+            <div class="right"></div>
+        </article>
+    </section>
+</body>
+
+</html>
